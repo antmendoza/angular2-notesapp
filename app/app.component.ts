@@ -6,9 +6,10 @@ import { Note }  from './notes/note.model';
 
 @Component({
     selector: 'my-app',
-    template: `<h1>Notes:</h1>
+    template: `<div class="container">
+                <h1>Notes:</h1>
 				<notes-list></notes-list>
-    		  `
+    		  </div>`
 })
 export class AppComponent { }
 
