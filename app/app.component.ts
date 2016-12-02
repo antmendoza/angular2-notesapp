@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { NotesListComponent } from './notes-list.component';
-import { Note }  from './note.model';
+import { NotesListComponent } from './notes/notes-list.component';
+import { Note }  from './notes/note.model';
 
 
 
