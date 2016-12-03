@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-
 //TODO keep variable here to make it global
 var markedElement: Array<string> = [];
 

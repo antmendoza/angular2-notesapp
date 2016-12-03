@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { Note, ContainsFilter, PrinterBasicNoteToHtml, } from './note.model';
 import { NotesListService } from './notes.service';
 
 @Component({
 	selector: 'notes-list',
 	template : `
-	<input name="search" [(ngModel)]="search" placeholder="search..." (keyup)="filterNotes()">
 	<div *ngFor="let note of filterNotes()">
 	<bookmark [idElement]="note._id"></bookmark>
 	<div [innerHTML]="printer(note)">
@@ -16,12 +15,12 @@ import { NotesListService } from './notes.service';
 })
 
 export class NotesListComponent {
+
+    @Input() filter: string = "";
 	private notes : Array<Note>;
 	private service : NotesListService;
-	public search : string;
 	
 	constructor(service : NotesListService){
-		this.search = "";
 		this.service = service;
 		this.notes = this.service.notes();
 	}
@@ -33,7 +32,7 @@ export class NotesListComponent {
 	}
 
 	private valueSearch(): string{
-		return this.search.trim();
+		return this.filter.trim();
 	}
 
 	public printer(note: Note) : string{

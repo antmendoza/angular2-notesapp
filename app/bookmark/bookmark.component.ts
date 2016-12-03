@@ -9,20 +9,25 @@ import { BookmarkService } from './bookmark.service';
                [class.icon-marked]="marked()" >
             </i>`,
     styles: [
-            '.icon-bookmark {cursor: pointer}',
-            '.icon-marked {color: red}'
-            ],
+        '.icon-bookmark {cursor: pointer}',
+        '.icon-marked {color: red}'
+    ],
     providers: [BookmarkService]
 })
+
 export class BookmarkComponent {
-    @Input() idElement: string;
-    constructor(private service: BookmarkService) { }
-    click() {
+    @Input() private idElement: string;
+
+    constructor(private service: BookmarkService) {
+    }
+
+    private click() {
         this.service.mark(this.idElement);
     }
 
-    marked(): boolean {
+    private marked(): boolean {
         return this.service.marked(this.idElement);
     }
 }
+
 

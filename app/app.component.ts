@@ -8,8 +8,20 @@ import { Note } from './notes/note.model';
     selector: 'my-app',
     template: `<div class="container">
                 <h1>Notes:</h1>
-				<notes-list></notes-list>
+                <boxfilter (boxFilterEvent)=handleBoxFilterEvent($event)></boxfilter>
+				<notes-list [filter]="filterValue()"></notes-list>
     		  </div>`
 })
-export class AppComponent { }
+export class AppComponent {
+    filter: string = "";
+
+    filterValue(){
+        return this.filter;
+    }
+
+    handleBoxFilterEvent($event){
+        this.filter = $event.value;
+    }
+
+}
 
