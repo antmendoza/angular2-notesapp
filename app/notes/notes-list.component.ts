@@ -7,10 +7,12 @@ import { NotesListService } from './notes.service';
 	template : `
 	<input name="search" [(ngModel)]="search" placeholder="search..." (keyup)="filterNotes()">
 	<div *ngFor="let note of filterNotes()">
+	<bookmark [idElement]="note._id"></bookmark>
 	<div [innerHTML]="printer(note)">
 	</div> 
 	</div>
-	`
+	`,
+	providers: [ NotesListService ]
 })
 
 export class NotesListComponent {
