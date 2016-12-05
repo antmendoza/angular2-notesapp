@@ -15,7 +15,7 @@ import { BookmarkService } from './bookmark.service';
     providers: [BookmarkService]
 })
 
-export class BookmarkComponent {
+export class BookMarkComponent {
     @Input() private idElement: string;
 
     constructor(private service: BookmarkService) {
