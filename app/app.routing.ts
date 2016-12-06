@@ -11,7 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 export const routing = RouterModule.forRoot([
     {path: 'notes', component: NotesListComponent},
-    {path: 'notes-details', component: NoteDetailComponent},
+    {path: 'notes/:id', component: NoteDetailComponent},
     {path: '**', component: NotFoundComponent}
 //TODO add not-found
 

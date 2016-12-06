@@ -140,7 +140,6 @@ export class PrinterBasicNoteToHtml implements Printable {
 		let content = ` 
 		<div class="media">
 			<div class="media-body">
-				<h4 class="media-heading">`+ this.note._title + `</h4>
 				<p>`+ this.note._content.toHtml() + `</p>
 			</div>
 			<div>
