@@ -9,8 +9,12 @@ import { BookMarkModule } from './bookmark/bookmark.module';
 import { BoxFilterModule } from './boxfilter/boxfilter.module';
 import { NotesModule } from './notes/notes.module';
 import { NotFoundModule } from './not-found/not-found.module';
-import { routing } from './app.routing'
 
+
+import { routing } from './app.routing'
+import { notesRouting} from './notes/notes.routing';
+import { homeRouting} from './home/home.routing';
+import { notFoundRouting} from './not-found/not-found.routing';
 
 @NgModule({
   imports: [
@@ -21,6 +25,9 @@ import { routing } from './app.routing'
             NotFoundModule,
             RouterModule,
             HomeModule,
+            notesRouting,
+            homeRouting,
+            notFoundRouting,
             routing
             ],
   declarations: [AppComponent],
