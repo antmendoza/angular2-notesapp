@@ -8,7 +8,6 @@ import { Note } from './notes/note.model';
     selector: 'my-app',
     template: `<!--div class="container">
                 <h1>Notes:</h1>
-                <boxfilter (boxFilterEvent)=handleBoxFilterEvent($event)></boxfilter>
 				<notes-list [filter]="filterValue()"></notes-list>
     		  </div-->
               <ul>

@@ -6,9 +6,11 @@ import { NoteDetailComponent }  from './note-detail.component';
 import { NotesListComponent }  from './notes-list.component'; 
 
 import { BookMarkModule } from '../bookmark/bookmark.module';
+import { BoxFilterModule } from '../boxfilter/boxfilter.module';
+
 
 @NgModule({ 
-    imports: [BrowserModule, BookMarkModule, RouterModule ], 
+    imports: [BrowserModule, RouterModule, BookMarkModule , BoxFilterModule], 
     declarations: [NoteDetailComponent, NotesListComponent ], 
     exports: [NoteDetailComponent, NotesListComponent] 
 }) 

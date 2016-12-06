@@ -6,6 +6,7 @@ import { NotesListService } from './notes.service';
 @Component({
 	selector: 'notes-list',
 	template : `
+	<boxfilter (boxFilterEvent)=handleBoxFilterEvent($event)></boxfilter>
 	<div *ngFor="let note of filterNotes()">
 	<bookmark [idElement]="note._id"></bookmark>
 	<a [routerLink] = "[1]"><h4 class="media-heading">{{note._title}}</h4></a>
@@ -18,7 +19,18 @@ import { NotesListService } from './notes.service';
 
 export class NotesListComponent {
 
-    @Input() filter: string = "";
+
+	filter: string = "";
+
+    filterValue(){
+        return this.filter;
+    }
+
+    handleBoxFilterEvent($event){
+        this.filter = $event.value;
+    }
+
+    //@Input() filter: string = "";
 	private notes : Array<Note>;
 	private service : NotesListService;
 	
