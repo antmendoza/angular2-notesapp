@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
-import { NotesListComponent } from './notes/notes-list.component';
+
 import { BookMarkModule } from './bookmark/bookmark.module';
-import { BoxFilterComponent } from './boxfilter/boxfilter.component';
+import { BoxFilterModule } from './boxfilter/boxfilter.module';
+import { NotesModule } from './notes/notes.module';
 
 
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, BookMarkModule],
-  declarations: [AppComponent, NotesListComponent, BoxFilterComponent],
+  imports: [BrowserModule, BoxFilterModule, BookMarkModule, NotesModule],
+  declarations: [AppComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

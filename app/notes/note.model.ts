@@ -85,12 +85,6 @@ export class NoteContent implements Content {
 	}
 }
 
-
-
-
-
-
-
 export interface Note extends Filterable {
 	readonly _id: number;
 	readonly _title: string;

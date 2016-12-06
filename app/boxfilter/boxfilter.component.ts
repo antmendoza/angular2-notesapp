@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { FormsModule} from '@angular/forms';
 import { BoxFilterService } from './boxfilter.service';
 @Component({
     selector: 'boxfilter',
