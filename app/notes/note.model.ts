@@ -139,14 +139,16 @@ export class PrinterBasicNoteToHtml implements Printable {
 
 		let content = ` 
 		<div class="media">
-			<div class="media-left">
-				<small><div>Creation date: ` + this.note._dateCreation.toUTCString() + `</div></small>
-				<small><div>Author: `+ this.note._author + `</div></small>
-			</div>
 			<div class="media-body">
 				<h4 class="media-heading">`+ this.note._title + `</h4>
 				<p>`+ this.note._content.toHtml() + `</p>
 			</div>
+			<div>
+				<small><div>Creation date: ` + this.note._dateCreation.toUTCString() + `</div></small>
+				<small><div>Author: `+ this.note._author + `</div></small>
+			</div>
+	
+	
 		</div>`;
 
 		return content;
