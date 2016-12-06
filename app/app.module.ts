@@ -4,6 +4,7 @@ import { Router, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
+import { HomeModule } from './home/home.module';
 import { BookMarkModule } from './bookmark/bookmark.module';
 import { BoxFilterModule } from './boxfilter/boxfilter.module';
 import { NotesModule } from './notes/notes.module';
@@ -19,6 +20,7 @@ import { routing } from './app.routing'
             NotesModule, 
             NotFoundModule,
             RouterModule,
+            HomeModule,
             routing
             ],
   declarations: [AppComponent],

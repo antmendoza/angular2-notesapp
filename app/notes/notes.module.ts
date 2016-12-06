@@ -9,7 +9,7 @@ import { NotesListComponent }  from './notes-list.component';
 import { BookMarkModule } from '../bookmark/bookmark.module';
 
 @NgModule({ 
-    imports: [BrowserModule, BookMarkModule, RouterModule], 
+    imports: [BrowserModule, BookMarkModule, RouterModule ], 
     declarations: [NoteDetailComponent, NotesListComponent], 
     exports: [NoteDetailComponent, NotesListComponent] 
 }) 
