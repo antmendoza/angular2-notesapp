@@ -14,8 +14,6 @@ import { Note } from './notes/note.model';
               <ul>
                 <li><a routerLink = "">Home</a>
                 <li><a routerLink = "notes">Notes list</a>
-                <li><a [routerLink] = "['notes', 1]">Note detail</a>
-              
               <router-outlet></router-outlet>
               `
 })

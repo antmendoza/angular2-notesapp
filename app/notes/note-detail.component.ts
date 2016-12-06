@@ -23,6 +23,7 @@ export class NoteDetailComponent  implements OnInit, OnDestroy{
 		});
 	}
 	ngOnDestroy(){
+		this._subscription.unsubscribe();
 		
 	}
 

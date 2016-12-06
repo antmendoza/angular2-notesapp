@@ -14,6 +14,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
 export const routing = RouterModule.forRoot([
     {path: '', component: HomeComponent},
     {path: 'notes', component: NotesListComponent},
+    {path: 'notes/:id', component: NoteDetailComponent},
     {path: '**', component: NotFoundComponent}
-
 ]);
