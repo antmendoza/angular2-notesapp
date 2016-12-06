@@ -15,6 +15,5 @@ export const routing = RouterModule.forRoot([
     {path: '', component: HomeComponent},
     {path: 'notes', component: NotesListComponent},
     {path: '**', component: NotFoundComponent}
-//TODO add not-found
 
 ]);
