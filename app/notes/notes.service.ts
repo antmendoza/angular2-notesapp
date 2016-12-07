@@ -33,22 +33,20 @@ function generateNotes(): Array<Note> {
 	for (let _i = 0; _i < 10; _i++) {
 		let content: Content;
 		let randomLorem = randomLoremIpsum();
-		let title = _i + 1 + ". " + randomLorem;
+		let title = randomLorem;
 		let link = "link " + (_i + 1) + randomLorem;
 		if (_i % 2 == 0) {
 			let itemsContent: Array<ItemContent> = new Array<ItemContent>();
-			for (var i = 0; i <= _i; i++) {
-				itemsContent[i] = new ImageSport(_i + i);
-			}
+
 			itemsContent.push(randomParagraph());
 			itemsContent.push(new Link("#", link));
 			content = new NoteContent(itemsContent);
 		} else {
 			content = new NoteContent(
-				[new ImageSport(_i),
+				[
 				randomParagraph(),
 				randomParagraph(),
-				new ImageSport(_i)]);
+				]);
 		}
 		notes[_i] = new BasicNote(title,
 			content,

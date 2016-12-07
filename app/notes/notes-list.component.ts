@@ -9,7 +9,7 @@ import { NotesService } from './notes.service';
 	<boxfilter (boxFilterEvent)=handleBoxFilterEvent($event)></boxfilter>
 	<div *ngFor="let note of filterNotes()">
 	<bookmark [idElement]="note._id"></bookmark>
-	<a [routerLink] = "[1]"><h4 class="media-heading">{{note._title}}</h4></a>
+	<a [routerLink] = "[1]"><h4 class="media-heading">{{note._id +" "+ note._title}}</h4></a>
 	<div [innerHTML]="printer(note)">
 	</div> 
 	</div>
