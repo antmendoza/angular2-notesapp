@@ -1,6 +1,6 @@
 import { Component, Input} from '@angular/core';
 import { Note, ContainsFilter, PrinterBasicNoteToHtml, } from './note.model';
-import { NotesListService } from './notes.service';
+import { NotesService } from './notes.service';
 
 
 @Component({
@@ -14,32 +14,21 @@ import { NotesListService } from './notes.service';
 	</div> 
 	</div>
 	`,
-	providers: [ NotesListService ]
+	providers: [ NotesService ]
 })
 
 export class NotesListComponent {
 
-
-	filter: string = "";
-
-    filterValue(){
-        return this.filter;
-    }
-
-    handleBoxFilterEvent($event){
-        this.filter = $event.value;
-    }
-
-    //@Input() filter: string = "";
+	private filter: string = "";
 	private notes : Array<Note>;
-	private service : NotesListService;
+	private service : NotesService;
 	
-	constructor(service : NotesListService){
+	constructor(service : NotesService){
 		this.service = service;
 		this.notes = this.service.notes();
 	}
 
-	public filterNotes(): Array<Note> {
+	private filterNotes(): Array<Note> {
 		return this.notes.concat([]).filter((note: Note)=>  {	
 			return note.matchFilter(new ContainsFilter(this.valueSearch()));
 		});
@@ -49,8 +38,13 @@ export class NotesListComponent {
 		return this.filter.trim();
 	}
 
-	public printer(note: Note) : string{
+	private printer(note: Note) : string{
 		return new  PrinterBasicNoteToHtml(note).print()+"<hr/>";
 	}
+
+ 	private handleBoxFilterEvent($event){
+        this.filter = $event.value;
+    }
+
 
 }

@@ -1,20 +1,20 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Router, RouterModule, ActivatedRoute} from '@angular/router';
 
-import { NotesListService } from './notes.service';
+import { NotesService } from './notes.service';
 
 @Component({
 	selector: 'note-detail',
 	template : `
 	<div>Note detail {{_id}}</div>
 	`,
-	providers: [ NotesListService ]
+	providers: [ NotesService ]
 })
 
 export class NoteDetailComponent  implements OnInit, OnDestroy{
 	private _id: string;
 	private _subscription ;
-	constructor(private _route: ActivatedRoute){
+	constructor(private _service: NotesService,  private _route: ActivatedRoute){
 	}
 
 	ngOnInit(){
