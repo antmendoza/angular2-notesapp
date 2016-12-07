@@ -7,21 +7,22 @@ import { NotesService } from './notes.service';
 @Component({
 	selector: 'note-detail',
 	template : `
-	<div>Note detail {{_note._id}}</div>
-	<div [innerHTML]="printer(_note)">
+	<div>{{note._id +" "+ note._title}}</div>
+	<div [innerHTML]="printer(note)"></div> 
 	`,
 	providers: [ NotesService ]
 })
 
 export class NoteDetailComponent  implements OnInit, OnDestroy{
-	private _note: Note;
+	 note: Note;
 	private _subscription ;
 	constructor(private _service: NotesService,  private _route: ActivatedRoute){
 	}
 
 	ngOnInit(){
 		this._subscription = this._route.params.subscribe(params => {
-			this._note = this._service.note(params["id"]);
+			let idNote = parseInt(params["id"]);			
+			this.note = this._service.note(idNote);
 		});
 	}
 	ngOnDestroy(){

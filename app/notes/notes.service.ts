@@ -11,19 +11,34 @@ var fakeGlobalNotes: Array<Note> = generateNotes();
 @Injectable()
 export class NotesService {
 
-	private fakeNotes: Array<Note>;
+	private _notes: Array<Note>;
 
 	public constructor() {
-		this.fakeNotes = fakeGlobalNotes;
+		this._notes = fakeGlobalNotes;
 	}
 
 	public notes(): Array<Note> {
-		return this.fakeNotes;
+		return this._notes;
 	}
 
-	public note(_id: number): Note {
-		return this.fakeNotes[0];
+	public note(id: number): Note {
+
+		let note: Note;
+		for (var i = 0; i < this._notes.length; i++) {
+    		// Iterate over numeric indexes from 0 to 5, as everyone expects.
+			let itNote =this._notes[i]; 
+    		console.log(itNote._id + " " + id);
+			if(itNote._id === id){
+				note = itNote;
+			}
+		}
+		return note; 
 	}
+
+	private filterById(){
+
+	}
+
 }
 
 //TODO fix this mess

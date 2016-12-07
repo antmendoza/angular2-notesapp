@@ -9,7 +9,7 @@ import { NotesService } from './notes.service';
 	<boxfilter (boxFilterEvent)=handleBoxFilterEvent($event)></boxfilter>
 	<div *ngFor="let note of filterNotes()">
 	<bookmark [idElement]="note._id"></bookmark>
-	<a [routerLink] = "[1]"><h4 class="media-heading">{{note._id +" "+ note._title}}</h4></a>
+	<a [routerLink] = "[note._id]"><h4 class="media-heading">{{note._id +" "+ note._title}}</h4></a>
 	<div [innerHTML]="printer(note)">
 	</div> 
 	</div>
@@ -21,11 +21,9 @@ export class NotesListComponent {
 
 	private filter: string = "";
 	private notes : Array<Note>;
-	private service : NotesService;
 	
 	constructor(service : NotesService){
-		this.service = service;
-		this.notes = this.service.notes();
+		this.notes = service.notes();
 	}
 
 	private filterNotes(): Array<Note> {

@@ -86,7 +86,7 @@ export class NoteContent implements Content {
 }
 
 export interface Note extends Filterable {
-	readonly _id: number;
+	_id: number;
 	readonly _title: string;
 	readonly _content: Content;
 	readonly _dateCreation: Date;
@@ -96,7 +96,7 @@ export interface Note extends Filterable {
 
 export class BasicNote implements Note {
 
-	readonly _id: number;
+	public _id: number;
 	readonly _title: string;
 	readonly _content: Content;
 	readonly _dateCreation: Date;
