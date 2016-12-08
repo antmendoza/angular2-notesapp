@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NotesModule } from './notes/notes.module';
-import { Note } from './notes/note.model';
 
 
 

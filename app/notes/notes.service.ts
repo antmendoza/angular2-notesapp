@@ -25,9 +25,7 @@ export class NotesService {
 
 		let note: Note;
 		for (var i = 0; i < this._notes.length; i++) {
-    		// Iterate over numeric indexes from 0 to 5, as everyone expects.
 			let itNote =this._notes[i]; 
-    		console.log(itNote._id + " " + id);
 			if(itNote._id === id){
 				note = itNote;
 			}
