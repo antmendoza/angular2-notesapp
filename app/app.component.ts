@@ -10,8 +10,8 @@ import { NotesModule } from './notes/notes.module';
 				<notes-list [filter]="filterValue()"></notes-list>
     		  </div-->
               <ul>
-                <li><a routerLink = "">Home</a>
-                <li><a routerLink = "notes">Notes list</a>
+                <li><a [routerLink] = "['']">Home</a>
+                <li><a [routerLink] = "['/notes']">Notes list</a>
               <router-outlet></router-outlet>
               `
 })
