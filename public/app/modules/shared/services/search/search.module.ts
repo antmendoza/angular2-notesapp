@@ -1,15 +1,12 @@
 import { NgModule }      from '@angular/core'; 
 import { FormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser'; 
-import { BoxFilterComponent }  from './boxfilter.component'; 
-
- 
-
+import { SearchComponent }  from './search.component'; 
 
 @NgModule({ 
     imports: [BrowserModule, FormsModule], 
-    declarations: [BoxFilterComponent], 
-    exports: [BoxFilterComponent], 
+    declarations: [SearchComponent], 
+    exports: [SearchComponent], 
 }) 
 
-export class BoxFilterModule { }
+export class SearchModule { }

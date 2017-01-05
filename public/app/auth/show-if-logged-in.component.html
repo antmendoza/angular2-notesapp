@@ -1,5 +1,6 @@
 <div [ngSwitch]="isLoggedIn()">
     <div *ngSwitchCase="true">
+        (only visible if user is logged)
         <ng-content></ng-content>
     </div>
     <div *ngSwitchDefault>

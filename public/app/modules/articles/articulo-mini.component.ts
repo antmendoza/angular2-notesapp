@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { IArticulo } from './articulo.model';
 import { Router } from '@angular/router';
-import { CapitalizePipe } from '../shared/capitalize.pipe';
+import { CapitalizePipe } from '../shared/pipes/capitalize.pipe';
 
 @Component({
 	moduleId: module.id,

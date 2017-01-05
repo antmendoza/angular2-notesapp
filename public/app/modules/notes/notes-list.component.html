@@ -1,13 +1,6 @@
 <div class="container-fluid">
 	<div class="row">
         <div class="col-xs-12 col-md-12">
-		    <boxfilter (boxFilterEvent)=handleBoxFilterEvent($event)></boxfilter>
-  	    </div>
-    </div>
-</div>
-<div class="container-fluid">
-	<div class="row">
-        <div class="col-xs-12 col-md-12">
     		<div *ngFor="let note of filterNotes()">
 	    		<bookmark [idElement]="note.id"></bookmark>
 		        <note-detail [note]="note" [detailType]="detailTypeResume()" ></note-detail>

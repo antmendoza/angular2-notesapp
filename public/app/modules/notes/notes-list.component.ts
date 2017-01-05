@@ -1,6 +1,9 @@
 import { Component, OnInit, OnDestroy, Input} from '@angular/core';
 import { Note, BasicNote, ContainsFilter, Paragraph, DETAIL_TYPE} from './note.model';
 import { NotesService } from './notes.service';
+import { SearchService } from '../shared/services/search/search.service';
+
+
 
 
 @Component({
@@ -15,8 +18,10 @@ export class NotesListComponent   implements OnInit, OnDestroy {
 	private filter: string = "";
 	private notes : Array<Note> = [];
 	private _subscription;
+	private _subscriptionSearch;
 
-	constructor(private service : NotesService){
+	constructor(private service : NotesService, 
+				private _searchService: SearchService){
 	}
 
 
@@ -27,32 +32,29 @@ export class NotesListComponent   implements OnInit, OnDestroy {
 			},
 			error => console.error(error)
 		);
+
+		this._subscriptionSearch = this._searchService.searchTerm().subscribe(
+			term => {
+				this.filter = term;
+			},
+			error => console.error(error)
+		);
+
 	}
 
 	ngOnDestroy(){
 		this._subscription.unsubscribe();
+		this._subscriptionSearch.unsubscribe();
 	}
-
-
-
 
 	private filterNotes(): Array<Note> {
 		return this.notes.concat([]).filter((note: Note)=>  {
-			return note.matchFilter(new ContainsFilter(this.valueSearch()));
+			return note.matchFilter(new ContainsFilter(this.filter));
 		});
 	}
 
 	private detailTypeResume(): DETAIL_TYPE{
 		return DETAIL_TYPE.RESUME;
 	}
-
-	private valueSearch(): string{
-		return this.filter.trim();
-	}
-
- 	private handleBoxFilterEvent($event){
-        this.filter = $event.value;
-    }
-
 	
 }

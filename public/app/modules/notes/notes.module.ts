@@ -12,12 +12,13 @@ import { AuthModule } from '../../auth/auth.module';
 
 
 import { BookMarkModule } from '../bookmark/bookmark.module';
-import { BoxFilterModule } from '../boxfilter/boxfilter.module';
+
 
 @NgModule({
-    imports: [BrowserModule, RouterModule, BookMarkModule, BoxFilterModule, FormsModule,AuthModule ],
+    imports: [BrowserModule, RouterModule, BookMarkModule, FormsModule,AuthModule ],
     declarations: [NoteDetailComponent, NotesListComponent, NoteEditComponent, NoteNewComponent],
-    exports: [NoteDetailComponent, NotesListComponent, NoteEditComponent, NoteNewComponent]
+    exports: [NoteDetailComponent, NotesListComponent, NoteEditComponent, NoteNewComponent],
+    providers: []
 })
 
 export class NotesModule { }

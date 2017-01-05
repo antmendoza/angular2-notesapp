@@ -17,17 +17,18 @@ import { ArticuloFormComponent } from "./modules/articles/articulo-form.componen
 import { ArticuloNewComponent } from "./modules/articles/articulo-new.component";
 
 
-import { CapitalizePipe } from './modules/shared/capitalize.pipe';
+import { CapitalizePipe } from './modules/shared/pipes/capitalize.pipe';
 
 
 import { SettingModule } from "./setting/setting.module";
+import { SearchModule } from "./modules/shared/services/search/search.module";
+import { SearchService } from './modules/shared/services/search/search.service'
 
 import { HeaderModule } from './modules/header/header.module';
 
 
 import { HomeModule } from './modules/home/home.module';
 import { BookMarkModule } from './modules/bookmark/bookmark.module';
-import { BoxFilterModule } from './modules/boxfilter/boxfilter.module';
 import { NotesModule } from './modules/notes/notes.module';
 import { NotFoundModule } from './modules/not-found/not-found.module';
 
@@ -56,9 +57,9 @@ import { notFoundRouting } from './modules/not-found/not-found.routing';
     NotesModule,
     HomeModule,
     BookMarkModule,
-    BoxFilterModule,
     NotFoundModule,
     AuthModule, 
+    SearchModule,
     notesRouting,
     homeRouting,
     authRouting,
@@ -74,7 +75,7 @@ import { notFoundRouting } from './modules/not-found/not-found.routing';
     ArticuloNewComponent
   ],
   providers: [
-    AuthService
+    AuthService, SearchService
   ],
   bootstrap: [AppComponent]
 })
