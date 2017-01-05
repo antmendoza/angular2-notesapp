@@ -12,7 +12,7 @@ export class UserService {
     }
 
     user(): User {
-        var user: User = JSON.parse(localStorage.getItem(this.keyuser));
+        let user: User = JSON.parse(localStorage.getItem(this.keyuser));
 
         if (user) {
             return user;
