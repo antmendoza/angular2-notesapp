@@ -1,0 +1,4 @@
+<div [ngSwitch]="isLoggedIn()">
+        <a *ngSwitchCase="true" (click)="logout()">Logout</a>
+        <a *ngSwitchDefault routerLink="/auth/login">Login</a>
+</div>

@@ -1,0 +1,38 @@
+
+
+<div class="container-fluid">
+	<div class="row">
+        <div class="col-xs-12 col-md-12">
+			<form (ngSubmit)="onSubmit()" #editform="ngForm">
+				<label for="titulo">Name: </label><br/>
+				<input type="text" name="username" [(ngModel)]="user.username" 
+								required placeolder="username" #username="ngModel"
+								size="50" ><br/>
+				<div [hidden]="username.valid || username.pristine" style="color:red">
+					<strong>required field</strong>
+				</div>
+				
+				<label for="titulo">Email: </label><br/>
+				<input type="text" name="email" [(ngModel)]="user.email" 
+								required placeolder="email" #email="ngModel"
+								size="50" ><br/>
+				<div [hidden]="email.valid || email.pristine" style="color:red">
+					<strong>required field</strong>
+				</div>
+
+				<label for="titulo">Password: </label><br/>
+				<input type="text" name="password" [(ngModel)]="user.password" 
+								required placeolder="password" #password="ngModel"
+								size="50" ><br/>
+				<div [hidden]="password.valid || password.pristine" style="color:red">
+					<strong>required field</strong>
+				</div>
+                
+				<br/>
+				<button type="submit" [disabled]="!editform.form.valid">Save</button>
+
+			</form>
+        </div>
+	</div>
+</div>
+

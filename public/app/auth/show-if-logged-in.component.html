@@ -1,0 +1,9 @@
+<div [ngSwitch]="isLoggedIn()">
+    <div *ngSwitchCase="true">
+        <ng-content></ng-content>
+    </div>
+    <div *ngSwitchDefault>
+        {{notLoggedMessage}}
+        <a routerLink = "/auth/login">Login</a>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+
+	<form (ngSubmit)="onCreateArticulo()" #newarticuloform="ngForm">
+		<label for="titulo">Titulo: </label><br/>
+		<input type="text" name="titulo" [(ngModel)]="articulo.titulo" required placeolder="Titulo" #tit="ngModel"><br/>
+		<div [hidden]="tit.valid || tit.pristine" style="color:red">
+			<strong>Campo obligatorio</strong>
+		</div>
+		<label for="contenido">Contenido:</label><br/>
+		<textarea [(ngModel)]="articulo.contenido" name="contenido" required placeholder="Contenido del artículo" rows="15" columns="50" [(ngModel)]="articulo.contenido" #cont="ngModel">
+		</textarea>
+		<input name="autor" value="articulo.autor" type="hidden">
+		<div [hidden]="cont.valid || cont.pristine" style="color:red">
+			<strong>Campo obligatorio</strong>
+		</div>	
+		<br/>
+		<button type="submit" [disabled]="!newarticuloform.form.valid">Crear</button>
+	</form>

@@ -1,0 +1,10 @@
+<div class="container-fluid">
+	<form (ngSubmit)="onSubmitComentario()" #comentarioForm="ngForm">
+		<textarea name="comentario" [(ngModel)]="comentario"  rows="30" cols="120" required #name="ngModel" ></textarea>
+		<div [hidden]='name.valid || name.pristine' style="background-color:light-red" >
+			<strong>Valor requerido</strong>
+		</div>
+		<br/>
+		<button type="submit" [disabled]="!comentarioForm.form.valid">Comentar</button> 
+	</form>
+</div>

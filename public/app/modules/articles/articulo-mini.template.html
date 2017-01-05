@@ -1,0 +1,7 @@
+
+<article *ngIf="articulo">				
+	<header><h2><a [routerLink]="['/articulo',articulo.id]" >{{articulo.titulo | capitalize}}</a></h2></header><small>{{articulo.fecha | date:'dd/MM/yyyy HH:mm'}}</small>
+	<div class="contenido">{{articulo.contenido.substring(0,100)}}...</div>
+	<button type="button" (click)="goArticulo(articulo.id)">Leer más</button> 
+	<br/><br/>
+</article>

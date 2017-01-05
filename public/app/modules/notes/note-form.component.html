@@ -1,0 +1,40 @@
+
+
+<div *ngIf="noteInitialized()" class="container-fluid">
+	<div class="row">
+        <div class="col-xs-12 col-md-12">
+			<form (ngSubmit)="onSubmit()" #editform="ngForm">
+				<label for="titulo">Title: </label><br/>
+				<input type="text" name="title" [(ngModel)]="note.title" 
+								required placeolder="Title" #tit="ngModel"
+								size="50" ><br/>
+				<div [hidden]="tit.valid || tit.pristine" style="color:red">
+					<strong>required field</strong>
+				</div>
+
+				<label for="contenido">Content:</label><br/>
+				<textarea [(ngModel)]="note.content.value" name="contenido" 
+						required placeholder="..." rows="15" cols="50" 
+						#cont="ngModel">
+				</textarea>
+				<div [hidden]="cont.valid || cont.pristine" style="color:red">
+					<strong>required field</strong>
+				</div>	
+				
+				<br/>
+				<label for="author">Author:</label><br/>
+				<input type="text" name="author" [(ngModel)]="note.author" 
+								required placeolder="Author" #auth="ngModel"><br/>
+				<div [hidden]="auth.valid || auth.pristine" style="color:red">
+					<strong>required field</strong>
+				</div>	
+
+				<br/>
+				<button type="submit" [disabled]="!editform.form.valid">{{nameSubmitForm()}}</button>
+
+			</form>
+        </div>
+	</div>
+</div>
+
+

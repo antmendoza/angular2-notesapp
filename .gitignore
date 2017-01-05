@@ -1,7 +1,5 @@
-typings
-app/**/*.js
-app/**/*.map
+server/node_modules
+public/app/**/*.js
+public/app/**/*.map
 node_modules
-jspm_packages
-bower_components
 TODO.txt

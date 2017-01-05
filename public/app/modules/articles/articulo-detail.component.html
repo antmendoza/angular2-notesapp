@@ -1,0 +1,19 @@
+
+<article *ngIf="articulo">
+	<header>
+		<h2>{{articulo.titulo}}</h2>
+	</header>
+	<span class="autor">{{articulo.autor}}</span>
+	<span class="fecha">{{articulo.fecha}}</span>
+	<div class="contenido-articulo">
+		{{articulo.contenido}}
+	</div>
+	<hr/>
+	<div class="comentarios">
+		<div *ngFor="let comentario of articulo.comentarios" class="comentario">
+			{{comentario}}
+		</div>
+		<hr/>
+	</div>
+	<comentario-form [articulo]="articulo" (articuloChange)="actualizarArticulo($event)"></comentario-form>
+</article>

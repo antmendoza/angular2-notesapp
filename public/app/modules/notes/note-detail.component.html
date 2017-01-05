@@ -1,0 +1,29 @@
+
+<div class="container-fluid">
+	<div class="row">
+        <div class="col-xs-12 col-md-12">
+			<a *ngIf="showLink()" [routerLink] = "[note.id]">
+				<h4 class="media-heading">{{note?.id +" "+ note?.title}}</h4>
+			</a>
+			<h4 *ngIf="!showLink()" class="media-heading">{{note?.id +" "+ note?.title}}</h4>
+            <div class="media">
+                <div class="media-body">
+                    <div [innerHTML]="noteContent()"></div>                    
+                </div>
+            </div>
+			<span *ngIf="showDateCreation()">{{note?.dateCreation | date: 'fullDate' }}</span>
+        </div>
+    </div>
+    <br/>
+	<div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div *ngIf="showEditButton()">
+                <show-if-logged-in [notLoggedMessage]="notLoggedMessage()">
+                    <a  [routerLink] = "['edit']">Edit</a>
+                </show-if-logged-in>                
+            </div>
+        </div>
+
+
+    </div>
+</div>
