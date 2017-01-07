@@ -1,5 +1,5 @@
 {
-  "name": "angular-quickstart",
+  "name": "notes-app",
   "version": "1.0.0",
   "scripts": {
     "start2": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
