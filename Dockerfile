@@ -14,7 +14,7 @@ RUN npm install typescript -g
 # Bundle app source
 COPY . /usr/src/app
 
-#exposing port defined in serve/start.ts
-EXPOSE 8080
+#exposing port defined in serve/start.js
+EXPOSE 3030
 
 CMD [ "npm", "start" ]
