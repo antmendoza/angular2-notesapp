@@ -6,4 +6,12 @@ services:
     image: angular2-app:latest
     ports:
     - "8080:3030"
+    depends_on:
+      - "bookmark-rest-app"
+    
+  bookmark-rest-app:
+    build: ./bookmark-rest-app
+    image: bookmark-rest-app:latest
+    ports:
+    - "8081:8081"
     
