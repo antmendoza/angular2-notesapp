@@ -1,3 +1,4 @@
-node_modules
-npm-debug.log
+angular-app/node_modules
+angular-app/npm-debug.log
 .git
+*.DS_Store

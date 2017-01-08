@@ -1,5 +1,4 @@
-server/node_modules
-public/app/**/*.js
-public/app/**/*.map
-node_modules
-TODO.txt
+angular-app/server/node_modules
+angular-app/public/app/**/*.js
+angular-app/public/app/**/*.map
+angular-app/node_modules

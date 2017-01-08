@@ -1,7 +1,7 @@
 # Angular app
 
 ## Installation
-there are two ways to test this application:
+there are two ways to run this application:
 * As node application. 
 * Inside docker.
 
@@ -9,8 +9,10 @@ there are two ways to test this application:
 Install node.
 
 Install typescript
- 
-Open your terminal and run "npm start"
+
+Open your terminal and:
+* go to /angular-app
+* run "npm start"
 
 Open a browser and go to **localhost:3030**
 
@@ -22,5 +24,3 @@ Open your terminal and run:
 * docker run -p 49160:3030 -d notes-app
 
 Then open a browser and go to **localhost:49160**
-
-
