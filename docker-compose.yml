@@ -1,0 +1,9 @@
+version: "2"
+
+services:
+  angular2-app:
+    build: ./angular2-app
+    image: angular2-app:latest
+    ports:
+    - "8080:3030"
+    

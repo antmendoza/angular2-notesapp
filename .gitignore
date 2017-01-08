@@ -1,4 +1,4 @@
-angular-app/server/node_modules
-angular-app/public/app/**/*.js
-angular-app/public/app/**/*.map
-angular-app/node_modules
+**/server/node_modules
+**/public/app/**/*.js
+**/public/app/**/*.map
+**/node_modules

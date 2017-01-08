@@ -6,12 +6,11 @@ there are two ways to run this application:
 * Inside docker.
 
 ### As node application
-Install node.
-
+Install node
 Install typescript
 
 Open your terminal and:
-* go to /angular-app
+* go to /angular2-app
 * run "npm start"
 
 Open a browser and go to **localhost:3030**
@@ -20,7 +19,6 @@ Open a browser and go to **localhost:3030**
 Install docker
 
 Open your terminal and run:
-* docker build -t notes-app .
-* docker run -p 49160:3030 -d notes-app
+* docker-compose up
 
-Then open a browser and go to **localhost:49160**
+Then open a browser and go to **localhost:8080**
