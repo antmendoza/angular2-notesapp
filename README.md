@@ -1,24 +1,12 @@
-# Angular app
+# Docker services: Angular2 + Wildfly Swarm
+This is a test to understand how to build something with docker-compose + Angular2 + Wildfly Swarm.
 
-## Installation
-there are two ways to run this application:
-* As node application. 
-* Inside docker.
+The angular app (front-end) also includes a node server and a data base to store articles and notes.
 
-### As node application
-Install node
-Install typescript
+The Wildfly Swarm (back-end) is a rest service that exposes some methods to manage bookmarks, so that from the note list you can bookmark notes if the Wildfly Swarm application (bookmark-rest-app) is up.
 
-Open your terminal and:
-* go to /angular2-app
-* run "npm start"
 
-Open a browser and go to **localhost:3030**
-
-### Inside docker
-Install docker
-
-Open your terminal and run:
-* docker-compose up
-
-Then open a browser and go to **localhost:8080**
+## Instalation
+Install docker 
+Open your terminal and run **docker-compose up**
+Open a browser and go to **localhost:8080**
