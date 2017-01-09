@@ -1,8 +1,8 @@
-package org.ws.angular.rest;
+package com.antmendoza.rest;
 
 import javax.ws.rs.core.Application;
 import javax.ws.rs.ApplicationPath;
 
-@ApplicationPath("/rest")
+@ApplicationPath("/api")
 public class RestApplication extends Application {
 }

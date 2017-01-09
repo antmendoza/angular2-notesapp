@@ -1,41 +1,61 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { Info, BookMark } from './bookmark.model';
+
+
 
 @Injectable()
 export class BookmarkService {
     private storekey: string = "my-bookmarks";
 
-
+    private url_base: string = "http://localhost:8081/bookmark-rest-app/api";
 
     constructor(private _http: Http) {
     }
 
-    mark(idElement: string): void {
+    enable(): Observable<Info> {
+        return this._http.get(this.url_base)
+            .map((res: Response) => {
+                let info: Info = res.json()["info"];
+                return info;
+            })
+            .catch((error) => {
+                console.error(error);
+                return Observable.throw('' + error);
+            });
+    }
 
-        let bookmarks: Array<string> = this.bookmarks();
+    byElementId(elementId: string): Observable<BookMark> {
+        return this._http.get(this.url_base + "/bookmarks/elementId/" + elementId)
+            .map((res: Response) => {
+                let bookmark: BookMark = res.json()["bookMark"];
+                return bookmark;
+            })
+            .catch((error) => {
+                console.error(error);
+                return Observable.throw('' + error);
+            });
+    }
 
-        if (!bookmarks) {
-            bookmarks = [];
-        }
-
-        let index: number = bookmarks.indexOf(idElement);
-        let contains: boolean = index > -1;
-        if (contains) {
-            bookmarks.splice(index, 1);
-        } else {
-            bookmarks.push(idElement);
-        }
-        localStorage.setItem(this.storekey, JSON.stringify(bookmarks));
-
+    put(bookMark: BookMark): Observable<BookMark> {
+        
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let stBookMark = '{\"bookMark\":'+JSON.stringify(bookMark)+'}';
+        return this._http.put(this.url_base + "/bookmarks", stBookMark, { headers: headers })
+            .map((res: Response) => {
+                let bookmark: BookMark = res.json()["bookMark"];
+                return bookmark;
+            })
+            .catch((error) => {
+                console.error(error);
+                return Observable.throw('' + error);
+            });
     }
 
 
-    marked(idElement: string): boolean {
-        let index: number = this.bookmarks().indexOf(idElement);
-        let contains: boolean = index > -1;
-        return contains;
-    }
+
+
 
     private bookmarks(): Array<string> {
         let bookmarks: Array<string> = JSON.parse(localStorage.getItem(this.storekey));
@@ -47,20 +67,5 @@ export class BookmarkService {
 
     }
 
-
-
-    private heroesUrl = 'http://localhost:8081/ws-angular/rest/hello';
-
-    getHeroes(): Observable<string> {
-        return this._http.get(this.heroesUrl)
-            .map((res: Response) => {
-                let noteJSON = res;
-                return noteJSON;
-            })
-            .catch((error) => {
-                console.error(error);
-                return Observable.throw('' + error);
-            });
-    }
 
 }

@@ -1,4 +1,4 @@
-package org.ws.bookmark.endpoint;
+package com.antmendoza.bookmark.endpoint;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
@@ -10,17 +10,18 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-import org.ws.bookmark.model.BookMark;
-import org.ws.bookmark.model.BookMarks;
-import org.ws.bookmark.service.BookMarkService;
+import com.antmendoza.bookmark.model.BookMark;
+import com.antmendoza.bookmark.model.BookMarks;
+import com.antmendoza.bookmark.service.BookMarkService;
+import com.antmendoza.rest.common.RestResponse;
 
 @Path("/bookmarks")
 @Produces(APPLICATION_JSON)
-public class BookMarksEntryPoint {
+public class BookMarksEndPoint {
 
 	private BookMarkService service;
 
-	public BookMarksEntryPoint() {
+	public BookMarksEndPoint() {
 		service = new BookMarkService();
 	}
 
@@ -29,19 +30,18 @@ public class BookMarksEntryPoint {
 	@Consumes({ APPLICATION_JSON })
 	public Response updateBookMark(BookMark bookMark) {
 		BookMark result = service.updateOrCreate(bookMark);
-		return buildResponse(result);
+		return new RestResponse(result).ok();
 	}
 
 	@GET
 	@Path("elementId/{elementId}")
 	@Consumes({ APPLICATION_JSON })
-	public Response bookMarkByElementId( @PathParam( "elementId" ) String elementId) {
+	public Response bookMarkByElementId(@PathParam("elementId") String elementId) {
 		BookMark result = service.byElementId(elementId);
-		
-		
+
 		System.out.println("byElementId entryPoint -> " + result);
 
-		return buildResponse(result);
+		return new RestResponse(result).ok();
 	}
 
 	@GET
@@ -49,14 +49,7 @@ public class BookMarksEntryPoint {
 	@Consumes({ APPLICATION_JSON })
 	public Response all() {
 		BookMarks result = service.all();
-		return buildResponse(result);
-	}
-
-	private Response buildResponse(Object result) {
-		return Response.ok(result).header("Access-Control-Allow-Origin", "*")
-				.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
-				.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
-				.header("Access-Control-Max-Age", "2000").build();
+		return new RestResponse(result).ok();
 	}
 
 }

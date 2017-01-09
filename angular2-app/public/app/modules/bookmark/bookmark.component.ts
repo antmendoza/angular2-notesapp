@@ -1,14 +1,15 @@
 import { Component, Input, OnDestroy, OnChanges, OnInit } from '@angular/core';
 import { BookmarkService } from './bookmark.service';
+import { BookMark } from './bookmark.model';
 
 @Component({
     selector: 'bookmark',
-    template: `
-            {{testHello}}
-            <i class="glyphicon glyphicon-bookmark icon-bookmark" 
-               (click)="click()"
-               [class.icon-marked]="marked()" >
-            </i>`,
+    template: `<div *ngIf="serviceEnable">
+                    <i class="glyphicon glyphicon-bookmark icon-bookmark" 
+                    (click)="click()"
+                    [class.icon-marked]="bookMark?.marked" >
+                    </i>
+            </div>`,
     styles: [
         '.icon-bookmark {cursor: pointer}',
         '.icon-marked {color: red}'
@@ -18,25 +19,65 @@ import { BookmarkService } from './bookmark.service';
 
 
 
-export class BookMarkComponent  {
+export class BookMarkComponent implements OnDestroy, OnInit, OnChanges {
     @Input() private idElement: string;
-    private testHello: string;
+
+    private serviceEnable: boolean = false;
+    private bookMark: BookMark;
+    private _subscription;
 
     constructor(private service: BookmarkService) {
     }
 
     private click() {
-        this.service.mark(this.idElement);
+        let cloneBookMark: BookMark = JSON.parse(JSON.stringify(this.bookMark));
+
+        this.bookMark.marked = !this.bookMark.marked;
+        let subscription = this.service.put(this.bookMark).subscribe(
+            bookMark => {
+                console.log(bookMark);
+                this.bookMark = bookMark;
+                subscription.unsubscribe();
+            },
+            error => {
+                console.error(error);
+                this.bookMark = cloneBookMark;
+
+            }
+        );
     }
 
-    private marked(): boolean {
-        return this.service.marked(this.idElement);
+    ngOnInit() {
+        let subscriptionEnable = this.service.enable().subscribe(
+            serviceEnable => {
+                console.log(serviceEnable);
+                this.serviceEnable = serviceEnable.enable;
+                subscriptionEnable.unsubscribe();
+            },
+            error => console.error(error)
+        );
+
+        let subscription = this.service.byElementId(this.idElement).subscribe(
+            bookMark => {
+                console.log(bookMark);
+                this.bookMark = bookMark;
+                subscription.unsubscribe();
+            },
+            error => console.error(error)
+        );
+    }
+
+
+    ngOnDestroy() {
+        //this._subscription.unsubscribe();
+    }
+
+    ngOnChanges() {
+
 
     }
 
-  
+
 
 
 }
-
-

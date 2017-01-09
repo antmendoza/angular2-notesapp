@@ -1,4 +1,4 @@
-package org.ws.bookmark.model;
+package com.antmendoza.bookmark.model;
 
 import static com.fasterxml.jackson.annotation.JsonTypeInfo.As.WRAPPER_OBJECT;
 
@@ -40,6 +40,18 @@ public class BookMark {
 		return elementId;
 	}
 
+	public void setBookMarkId(String bookMarkId) {
+		this.bookMarkId = bookMarkId;
+	}
+
+	public void setElementId(String elementId) {
+		this.elementId = elementId;
+	}
+
+	public void setMarked(boolean marked) {
+		this.marked = marked;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -72,6 +84,11 @@ public class BookMark {
 		if (marked != other.marked)
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "BookMark: {bookMarkId :" + bookMarkId + " ;elementId: " + elementId + " ; marked: " + marked + "}";
 	}
 
 }
