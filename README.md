@@ -8,5 +8,7 @@ The Wildfly Swarm (back-end) is a rest service that exposes some methods to mana
 
 ## Instalation
 Install docker 
+
 Open your terminal and run **docker-compose up**
+
 Open a browser and go to **localhost:8080**
