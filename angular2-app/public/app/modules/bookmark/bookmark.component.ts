@@ -50,8 +50,7 @@ export class BookMarkComponent implements OnDestroy, OnInit, OnChanges {
     ngOnInit() {
         let subscriptionEnable = this.service.enable().subscribe(
             serviceEnable => {
-                console.log(serviceEnable);
-                this.serviceEnable = serviceEnable.enable;
+                this.serviceEnable = true;
                 subscriptionEnable.unsubscribe();
             },
             error => console.error(error)
@@ -59,11 +58,17 @@ export class BookMarkComponent implements OnDestroy, OnInit, OnChanges {
 
         let subscription = this.service.byElementId(this.idElement).subscribe(
             bookMark => {
-                console.log(bookMark);
                 this.bookMark = bookMark;
                 subscription.unsubscribe();
             },
-            error => console.error(error)
+            error => {
+                //Server returns a 404 code, let's create the bookmark
+                this.bookMark = {
+                    "bookMarkId": null,
+                    "elementId": this.idElement,
+                    "marked": false
+                };
+            }
         );
     }
 

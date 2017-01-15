@@ -12,3 +12,13 @@ Install docker
 Open your terminal and run **docker-compose up**
 
 Open a browser and go to **localhost:8080**
+
+
+## bookmark-rest-app (Wildfly Swarm application)
+bookmark-rest-app is a rest end point, build with Wildfly Swarm. 
+
+To run it, out of docker container, open a terminal and go to bookmark-rest-app folder, then run: 
+- mvn clean install. Add angular profile (-Pangular) to generate an Angular2 client
+- java -jar target/bookmark-rest-app-swarm.jar
+
+Documentation of the rest service: http://localhost:8081/bookmark-rest-app/swagger/#/Booksmarks32REST32Endpoint

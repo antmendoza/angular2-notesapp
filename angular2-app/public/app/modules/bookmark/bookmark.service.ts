@@ -15,7 +15,7 @@ export class BookmarkService {
     }
 
     enable(): Observable<Info> {
-        return this._http.get(this.url_base)
+        return this._http.get("http://localhost:8081/bookmark-rest-app/api/swagger.json")
             .map((res: Response) => {
                 let info: Info = res.json()["info"];
                 return info;
