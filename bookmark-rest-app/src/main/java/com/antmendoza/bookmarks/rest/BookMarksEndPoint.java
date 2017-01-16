@@ -90,7 +90,7 @@ public class BookMarksEndPoint {
 	
 	@GET
 	@Path("")
-    @ApiOperation(value = "Finds all the attendees", response = BookMarks.class, responseContainer = "List")
+    @ApiOperation(value = "Finds all bookMarks", response = BookMarks.class, responseContainer = "List")
     @ApiResponses(value = {
 		    @ApiResponse(code = 200, message = "Successful retrieval all BookMarks entities", response = BookMarks.class),
 		    @ApiResponse(code = 400, message = "Invalid input"),
